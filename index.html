@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DIVA - Boutique Élégante</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icônes -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+
+        <div class="logo">
+            DIVA
+        </div>
+
+        <div class="search-bar">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Rechercher un produit..."
+            >
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div
+            class="cart-icon"
+            onclick="toggleCart()"
+            aria-label="Ouvrir le panier"
+        >
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cartCount">0</span>
+
+        </div>
+
+    </header>
+
+
+    <!-- BANNIÈRE D'ACCUEIL -->
+    <section class="hero">
+
+        <h1>
+            Bienvenue chez DIVA
+        </h1>
+
+        <p>
+            L'élégance à portée de main.
+            Découvrez nos nouveautés exclusives.
+        </p>
+
+        <a
+            href="#products"
+            class="btn-primary"
+        >
+            Découvrir la collection
+        </a>
+
+    </section>
+
+
+    <!-- CATÉGORIES -->
+    <section class="categories">
+
+        <button
+            class="cat-btn active"
+            onclick="filterCategory('all')"
+        >
+            Tous
+        </button>
+
+        <button
+            class="cat-btn"
+            onclick="filterCategory('vetement')"
+        >
+            Vêtements
+        </button>
+
+        <button
+            class="cat-btn"
+            onclick="filterCategory('accessoire')"
+        >
+            Accessoires
+        </button>
+
+        <button
+            class="cat-btn"
+            onclick="filterCategory('chaussure')"
+        >
+            Chaussures
+        </button>
+
+    </section>
+
+
+    <!-- PRODUITS -->
+    <main
+        id="products"
+        class="product-grid"
+    >
+        <!-- Les produits seront ajoutés automatiquement par JavaScript -->
+    </main>
+
+
+    <!-- BOUTON WHATSAPP -->
+    <a
+        href="https://wa.me/2250707307811"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        aria-label="Contacter DIVA sur WhatsApp"
+    >
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+    <!-- PANIER -->
+    <div
+        id="cartSidebar"
+        class="cart-sidebar"
+    >
+
+        <div class="cart-header">
+
+            <h2>
+                Votre panier
+            </h2>
+
+            <button
+                onclick="toggleCart()"
+                class="close-cart"
+                aria-label="Fermer le panier"
+            >
+                &times;
+            </button>
+
+        </div>
+
+
+        <div
+            id="cartItems"
+            class="cart-items"
+        >
+            <!-- Articles du panier -->
+        </div>
+
+
+        <div class="cart-footer">
+
+            <p>
+                Total :
+                <span id="cartTotal">0</span>
+                FCFA
+            </p>
+
+            <button
+                onclick="openCheckout()"
+                class="btn-checkout"
+            >
+                Commander
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FORMULAIRE DE COMMANDE -->
+    <div
+        id="checkoutModal"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <span
+                class="close-modal"
+                onclick="closeCheckout()"
+            >
+                &times;
+            </span>
+
+
+            <h2>
+                Finaliser votre commande
+            </h2>
+
+
+            <form
+                id="checkoutForm"
+                onsubmit="submitOrder(event)"
+            >
+
+                <label for="name">
+                    Nom complet
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    required
+                    placeholder="Votre nom"
+                >
+
+
+                <label for="phone">
+                    Numéro de téléphone
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    required
+                    placeholder="Votre numéro"
+                >
+
+
+                <label for="address">
+                    Adresse de livraison
+                </label>
+
+                <textarea
+                    id="address"
+                    required
+                    placeholder="Votre ville, quartier..."
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Valider la commande
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIED DE PAGE -->
+    <footer>
+
+        <p>
+            &copy; 2026 DIVA.
+            Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+          </html>
